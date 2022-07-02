@@ -70,7 +70,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      {/* <Stack.Navigator
         initialRouteName="TabScreen"
         screenOptions={{
           headerShown: false,
@@ -78,7 +78,43 @@ export default function App() {
       >
         <Stack.Screen name="movieDetail" component={MovieDetail} />
         <Stack.Screen name="TabScreen" component={TabScreens} />
-      </Stack.Navigator>
+      </Stack.Navigator> */}
+      <Tab.Navigator
+        initialRouteName="Search"
+        sceneContainerStyle={{
+          backgroundColor: "#fff",
+          marginBottom: 50,
+        }}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ size, color }) => {
+            let iconName;
+
+            if (route.name === "Home") {
+              iconName = "home";
+            } else if (route.name === "Genre") {
+              iconName = "disqus";
+              return <Fontistoicons name="disqus" size={size} color={color} />;
+            } else {
+              iconName = "search";
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: "black",
+          tabBarInactiveTintColor: "gray",
+          headerShown: false,
+          tabBarLabelStyle: {
+            fontSize: 13,
+            fontFamily: "Roboto",
+            marginBottom: 5,
+          },
+          tabBarStyle: { position: "absolute", paddingTop: 5 },
+        })}
+      >
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Genre" component={GenreScreen} />
+        <Tab.Screen name="Search" component={SearchScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

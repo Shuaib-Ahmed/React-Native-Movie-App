@@ -13,7 +13,7 @@ const MoviePoster = ({ movieData }) => {
   const imageUrl = `${image_url}${poster_path}`;
 
   return (
-    <Link style={styles.imageContainer} to={{ screen: "movieDetail" }}>
+    <TouchableOpacity style={styles.imageContainer}>
       <Image source={{ uri: imageUrl }} style={styles.image} />
 
       <Text style={[styles.title, GlobalStyle.textFont]}>
@@ -26,7 +26,7 @@ const MoviePoster = ({ movieData }) => {
           {vote_average.toFixed(2)} / 10
         </Text>
       </View>
-    </Link>
+    </TouchableOpacity>
   );
 };
 

@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "movie-app",
+    "name": "Movie App",
     "slug": "movie-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,6 +21,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "tothepointcode.tomovieapp",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
