@@ -18,4 +18,12 @@ export const getSearchUrl = (page, query) => {
   return `https://api.themoviedb.org/3/search/movie?api_key=${Private_Key}&language=en-US&query=${query}&page=${page}&include_adult=false`;
 };
 
+export const getMovieDetails = (id) => {
+  return `https://api.themoviedb.org/3/movie/${id}?api_key=${Private_Key}&language=en-US`;
+};
+
+export const getMovieCrew = (id) => {
+  return `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${Private_Key}&language=en-US`;
+};
+
 export const image_url = `https://image.tmdb.org/t/p/w500`;

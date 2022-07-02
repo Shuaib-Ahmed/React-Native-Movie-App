@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 
 import { image_url } from "../utils/Api";
@@ -9,11 +9,14 @@ import { GlobalStyle } from "../utils/GlobalStyle";
 import { Link } from "@react-navigation/native";
 
 const MoviePoster = ({ movieData }) => {
-  const { poster_path, title, vote_average } = movieData;
+  const { poster_path, title, vote_average, id } = movieData;
   const imageUrl = `${image_url}${poster_path}`;
 
   return (
-    <TouchableOpacity style={styles.imageContainer}>
+    <Link
+      style={styles.imageContainer}
+      to={{ screen: "movieDetail", params: { id: id } }}
+    >
       <Image source={{ uri: imageUrl }} style={styles.image} />
 
       <Text style={[styles.title, GlobalStyle.textFont]}>
@@ -26,7 +29,7 @@ const MoviePoster = ({ movieData }) => {
           {vote_average.toFixed(2)} / 10
         </Text>
       </View>
-    </TouchableOpacity>
+    </Link>
   );
 };
 

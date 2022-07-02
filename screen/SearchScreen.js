@@ -43,7 +43,6 @@ const SearchScreen = () => {
 
 const styles = StyleSheet.create({
   defaultResultContainer: {
-    height: "60vh",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
