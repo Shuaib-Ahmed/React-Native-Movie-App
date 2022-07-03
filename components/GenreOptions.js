@@ -10,12 +10,13 @@ import React, { useState } from "react";
 import { genre_url } from "../utils/Api";
 import useFetchData from "../hooks/useFetchData";
 import { GlobalStyle } from "../utils/GlobalStyle";
+import Loading from "./Loading"
 
 const GenreOptions = ({ setGenre }) => {
   const [data, loading] = useFetchData(genre_url);
 
   if (loading) {
-    return <Text>Loading....</Text>;
+    return <Loading size={"small"} />;
   }
 
   return (

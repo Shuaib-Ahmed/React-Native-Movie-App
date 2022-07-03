@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -7,6 +6,8 @@ import { useFonts } from "expo-font";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Fontistoicons from "react-native-vector-icons/Fontisto";
+
+import Loading from "./components/Loading"
 
 import {
   HomeScreen,
@@ -25,7 +26,7 @@ export default function App() {
   });
 
   if (!loaded) {
-    return <Text>Loading....</Text>;
+    return <Loading size="large" />
   }
 
   const TabScreens = () => {

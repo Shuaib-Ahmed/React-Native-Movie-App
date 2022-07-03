@@ -5,6 +5,7 @@ import { GlobalStyle } from "../utils/GlobalStyle";
 import { trending_url } from "../utils/Api";
 
 import MoviePoster from "./MoviePoster";
+import Loading from "./Loading"
 
 import useFetchData from "../hooks/useFetchData";
 
@@ -12,7 +13,7 @@ const Trending = () => {
   const [data, loading] = useFetchData(trending_url);
 
   if (loading) {
-    return <Text>Loadong ....</Text>;
+    return <Loading size="small"/>
   }
 
   return (

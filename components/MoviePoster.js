@@ -14,20 +14,31 @@ const MoviePoster = ({ movieData }) => {
 
   return (
     <Link
-      style={styles.imageContainer}
+      style={{ margin: 7 }}
       to={{ screen: "movieDetail", params: { id: id } }}
     >
-      <Image source={{ uri: imageUrl }} style={styles.image} />
+      <View style={styles.imageContainer}>
+        {profile_path && (
+          <Image source={{ uri: imageUrl }} style={styles.image} />
+        )}
 
-      <Text style={[styles.title, GlobalStyle.textFont]}>
-        {title.length > 10 ? `${title.substring(0, 13)}....` : title}
-      </Text>
+        {profile_path === null && (
+          <Image
+            style={styles.image}
+            source={require("../assets/default_image.jpg")}
+          />
+        )}
 
-      <View style={styles.voteContainer}>
-        <Iconicicon name="star" size={15} color="yellow" />
-        <Text style={[styles.vote, GlobalStyle.textFont]}>
-          {vote_average.toFixed(2)} / 10
+        <Text style={[styles.title, GlobalStyle.textFont]}>
+          {title.length > 10 ? `${title.substring(0, 13)}....` : title}
         </Text>
+
+        <View style={styles.voteContainer}>
+          <Iconicicon name="star" size={15} color="yellow" />
+          <Text style={[styles.vote, GlobalStyle.textFont]}>
+            {vote_average.toFixed(2)} / 10
+          </Text>
+        </View>
       </View>
     </Link>
   );

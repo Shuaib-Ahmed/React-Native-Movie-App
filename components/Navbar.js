@@ -19,7 +19,7 @@ const Navbar = () => {
 const style = StyleSheet.create({
   navContainer: {
     margin: 10,
-    textAlign: "center",
+    alignItems: "center"
   },
   logo: {
     fontSize: 20,

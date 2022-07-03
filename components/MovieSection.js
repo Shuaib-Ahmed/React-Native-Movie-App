@@ -24,11 +24,6 @@ const MovieSection = ({ title, url, setTotalPages }) => {
       {title && (
         <View style={styles.headerContainer}>
           <Text style={GlobalStyle.sectionHeader}>{title}</Text>
-          <TouchableOpacity style={styles.headerButton}>
-            <Text style={[GlobalStyle.textFont, { color: "tomato" }]}>
-              View All
-            </Text>
-          </TouchableOpacity>
         </View>
       )}
 
@@ -49,14 +44,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 5,
     marginHorizontal: 10,
-  },
-  headerButton: {
-    borderColor: "grey",
-    borderWidth: 3,
-    borderRadius: 15,
-    marginRight: 10,
-    paddingVertical: 5,
-    paddingHorizontal: 10,
   },
   movieContainer: {
     flexDirection: "row",

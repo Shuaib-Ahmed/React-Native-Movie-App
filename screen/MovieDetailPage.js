@@ -6,6 +6,8 @@ import { GlobalStyle } from "../utils/GlobalStyle";
 import useFetchData from "../hooks/useFetchData";
 import { getMovieDetails, image_url } from "../utils/Api";
 
+import Loading from "../components/Loading";
+
 const screenWidth = Dimensions.get("window").width;
 
 const MovieDetailPage = ({ route }) => {
@@ -13,7 +15,7 @@ const MovieDetailPage = ({ route }) => {
   const [data, loading] = useFetchData(getMovieDetails(id));
 
   if (loading) {
-    return <Text>Loading ......</Text>;
+    return <Loading size={"large"} />;
   }
 
   const { backdrop_path } = data;

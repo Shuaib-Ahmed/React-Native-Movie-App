@@ -4,12 +4,13 @@ import React from "react";
 import useFetchData from "../hooks/useFetchData";
 import { GlobalStyle } from "../utils/GlobalStyle";
 import { getMovieCrew, image_url } from "../utils/Api";
+import Loading from "./Loading"
 
 const MovieCast = ({ id }) => {
   const [data, loading] = useFetchData(getMovieCrew(id));
 
   if (loading) {
-    return <Text>Loading ......</Text>;
+    return <Loading size="large" />
   }
   
   return (
@@ -21,10 +22,12 @@ const MovieCast = ({ id }) => {
           const { original_name, profile_path } = item;
           return (
             <View style={{ marginHorizontal: 10 }}>
-              <Image
-                source={{ uri: `${image_url}/${profile_path}` }}
+               {profile_path && (<Image
+                source={{ uri:`${image_url}/${profile_path}`}}
                 style={styles.image}
-              />
+              />)}
+
+              {profile_path === null && (<Image style={styles.image} source={require("../assets/default_image.jpg")}/>)}
               <Text
                 style={[
                   GlobalStyle.textFont,
