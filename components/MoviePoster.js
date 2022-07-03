@@ -18,11 +18,11 @@ const MoviePoster = ({ movieData }) => {
       to={{ screen: "movieDetail", params: { id: id } }}
     >
       <View style={styles.imageContainer}>
-        {profile_path && (
+        {poster_path && (
           <Image source={{ uri: imageUrl }} style={styles.image} />
         )}
 
-        {profile_path === null && (
+        {poster_path === null && (
           <Image
             style={styles.image}
             source={require("../assets/default_image.jpg")}

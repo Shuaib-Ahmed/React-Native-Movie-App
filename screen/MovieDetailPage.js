@@ -1,4 +1,4 @@
-import { Text, ScrollView, Image, StyleSheet, Dimensions } from "react-native";
+import { ScrollView, Image, StyleSheet, Dimensions } from "react-native";
 import React from "react";
 
 import { Navbar, MovieDetails } from "../components";
@@ -25,10 +25,20 @@ const MovieDetailPage = ({ route }) => {
       style={[GlobalStyle.defaultContainer, { backgroundColor: "white" }]}
     >
       <Navbar />
-      <Image
-        source={{ uri: `${image_url}/${backdrop_path}` }}
-        style={styles.posterImage}
-      />
+
+      {backdrop_path && (
+        <Image
+          source={{ uri: `${image_url}/${backdrop_path}` }}
+          style={styles.posterImage}
+        />
+      )}
+
+      {backdrop_path === null && (
+        <Image
+          style={styles.posterImage}
+          source={require("../assets/default_image.jpg")}
+        />
+      )}
       <MovieDetails data={data} id={id} />
     </ScrollView>
   );
